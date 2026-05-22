@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cosmo Kana Blaster</title>
+  <meta name="description" content="日本語ローマ字入力でUFOを撃ち落とす、横スクロール風タイピングゲーム。">
+  <meta property="og:title" content="Cosmo Kana Blaster">
+  <meta property="og:description" content="日本語ローマ字入力でUFOを撃ち落とす、横スクロール風タイピングゲーム。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://distorted-libra.github.io/Cosmo-Kana-Blaster/">
+  <meta property="og:image" content="https://distorted-libra.github.io/Cosmo-Kana-Blaster/assets/ogp/cosmo-kana-blaster-ogp.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Cosmo Kana Blaster">
+  <meta name="twitter:description" content="日本語ローマ字入力でUFOを撃ち落とす、横スクロール風タイピングゲーム。">
+  <meta name="twitter:image" content="https://distorted-libra.github.io/Cosmo-Kana-Blaster/assets/ogp/cosmo-kana-blaster-ogp.png">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div>
+        <h1>Cosmo Kana Blaster</h1>
+        <div class="subtitle">右から迫る敵を、ローマ字入力で撃ち落とす横スクロール風タイピングゲーム</div>
+      </div>
+      <div class="stats" aria-live="polite">
+        <div class="stat"><span>Score</span><strong id="score">0</strong><em class="score-pop" id="scorePop"></em></div>
+        <div class="stat"><span>Combo</span><strong id="combo">0</strong></div>
+        <div class="stat"><span>Life</span><strong id="life">5</strong></div>
+        <div class="stat"><span>Wave</span><strong id="wave">1</strong></div>
+        <button class="mute-btn" id="muteBtn" type="button" aria-pressed="false">Sound</button>
+      </div>
+    </header>
+
+    <section class="stage-wrap">
+      <canvas id="stage" width="1280" height="720"></canvas>
+      <div class="wave-banner" id="waveBanner"></div>
+      <div class="overlay" id="overlay">
+        <div class="dialog title-dialog" id="overlayDialog">
+          <div class="title-logo" id="titleLogo">Cosmo<br>Kana<br>Blaster</div>
+          <h2 id="overlayTitle">Cosmo Kana Blaster</h2>
+          <div id="overlayText" class="overlay-text">スペースキーか Start で開始。敵の下に出ている日本語をローマ字で入力すると、自機が撃ちます。</div>
+          <div class="actions">
+            <button class="start-title-btn" id="startBtn" aria-label="Start typing">Start Typing</button>
+            <button class="secondary" id="resetBtn">Reset</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="input-panel">
+      <div class="target-line">
+        <div class="label">Target</div>
+        <div class="word">
+          <div class="kana" id="targetKana">待機中</div>
+          <div class="roman" id="targetRoman"></div>
+        </div>
+      </div>
+      <div class="controls">Space: Start/Pause<br>Backspace: ターゲット解除 / Esc: リセット</div>
+    </footer>
+  </main>
+
+  <script src="./sound.js"></script>
+  <script src="./config.js"></script>
+  <script src="./words.js"></script>
+  <script src="./game.js"></script>
+  <script src="./wave-banner-reset-fix.js"></script>
+</body>
+</html>
